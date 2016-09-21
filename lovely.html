@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body {
+				background: #3cb464;
+				overflow: hidden;
+				background: url(img/bg.jpg);
+				background-repeat: repeat;
+			}
+			
+			.container {
+				position: absolute;
+				width: 800px;
+				height: 400px;
+				left: 190px;
+				top: 100px;
+			}
+			
+			.container div,
+			.container span {
+				position: absolute;
+			}
+			
+			.intem {
+				width: 200px;
+				height: 200px;
+				-webkit-transform-origin: center bottom;
+				transform-origin: center bottom;
+			}
+			
+			.container .wrap {
+				width: 100px;
+				height: 100px;
+				bottom: 0;
+				box-shadow: inset 10px -6px 10px rgba(0, 0, 0, 0.1);
+				border-radius: 50% 50% 50% 50%/60% 60% 40% 40%;
+			}
+			
+			.eye {
+				background: #fff;
+				border-radius: 50%;
+				border-top: 2px solid #111;
+			}
+			
+			.eye span {
+				width: 8px;
+				height: 8px;
+				border-radius: 4px;
+				background: #232323;
+			}
+			
+			.eye.left {
+				top: 30px;
+				left: 30px;
+				width: 30px;
+				height: 29px;
+				-webkit-transform: rotate(-10deg);
+				transform: rotate(-10deg);
+			}
+			
+			.eye.left span {
+				top: 12px;
+				height: 9px;
+				left: 12px;
+			}
+			
+			.eye.right {
+				top: 35px;
+				right: 20px;
+				width: 20px;
+				height: 20px;
+				-webkit-transform: rotate(10deg);
+				transform: rotate(10deg);
+			}
+			
+			.container .eye.right span {
+				top: 9px;
+				left: 7px;
+			}
+			
+			.mouth {
+				width: 16px;
+				height: 4px;
+				bottom: 20px;
+				background: #fff;
+				border-radius: 60% 80% 50% 100%;
+				left: 50px;
+			}
+			
+			.arm {
+				width: 15px;
+				height: 16px;
+				bottom: 28px;
+				border-radius: 7px;
+				-webkit-animation: arm 0.7s ease-in-out infinite;
+				animation: arm 0.7s ease-in-out infinite;
+			}
+			
+			.arm.left {
+				left: -13px;
+				-webkit-transform: rotate(-20deg);
+				transform: rotate(-20deg);
+			}
+			
+			.arm.right {
+				right: -13px;
+				-webkit-transform: rotate(20deg);
+				transform: rotate(20deg);
+			}
+			
+			#pink {
+				z-index: 30;
+				transform: translate(1200px,-200px);
+				animation: run1 3s ease-in;
+				animation-delay: 4.5s;
+				animation-fill-mode:forwards ;
+			}
+			#green {
+				z-index: 40;
+				-webkit-transform: scale(0.8) translate(1300px,-140px);
+				transform: scale(0.8) translate(1500px,-150px);
+				animation:run2 5s ease-in;
+				animation-delay: 4.5s;
+				animation-fill-mode:both ;
+			}
+			
+			#yellow {
+				z-index: 50;
+				-webkit-transform: scale(0.5) translate(2380px,-50px);
+				transform: scale(0.5) translate(2380px,-50px);
+				animation:run3 4.5s ease-in;
+				animation-delay: 4.5s;
+				animation-fill-mode:both;
+			}
+			
+			@keyframes run1{
+				0%{
+					transform: translate(1200px,-200px);
+				}
+				100%{
+					transform: translate(30px,-10px);
+				}
+			}
+			@keyframes run2{
+				0%{
+					transform: scale(0.8) translate(1500px,-150px);
+				}
+				100%{
+					transform: scale(0.8) translate(50px,100px);
+				}
+			}
+			@keyframes run3{
+				0%{
+					transform: scale(0.5) translate(2380px,-50px);
+				}
+				100%{
+					transform: scale(0.5) translate(100px,350px);
+				}
+			}
+			#pink .wrap,
+			#pink .arm,
+			#pink .foot,
+			#pink .body {
+				background: pink;
+			}
+			
+			#pink .mouth {
+				left: 43px;
+				-webkit-animation: mounth 0.5s ease-in-out infinite;
+				animation: mounth 0.5s ease-in-out infinite;
+			}
+			#green .wrap {
+				-webkit-animation-delay: 0.2s;
+				animation-delay: 0.2s;
+			}
+			
+			#green .mouth {
+				left: 50px;
+				height: 15px;
+				width: 40px;
+				-webkit-transform: rotate(2deg);
+				transform: rotate(2deg);
+				-webkit-animation: mounth 0.5s ease-in-out infinite;
+				animation: mounth 0.5s ease-in-out infinite;
+			}
+			
+			#green .wrap,
+			#green .arm,
+			#green .foot,
+			#green .body {
+				background: greenyellow;
+			}
+			
+			#yellow .wrap {
+				-webkit-animation-delay: 0.4s;
+				animation-delay: 0.4s;
+			}
+			
+			#yellow .mouth {
+				left: 50px;
+				width: 20px;
+				height: 5px;
+				-webkit-transform: rotate(5deg);
+				transform: rotate(5deg);
+				-webkit-animation: mounth 0.5s ease-in-out infinite;
+				animation: mounth 0.5s ease-in-out infinite;
+			}
+			
+			#yellow .wrap,
+			#yellow .arm,
+			#yellow .foot,
+			#yellow .body {
+				background: paleturquoise;
+			}
+			/*道路*/
+			.road{
+				position: absolute;
+    			top: 100px;
+				left: 0;
+			}
+			.line{
+				width: 5000px;
+				height: 50px;
+				background: gray;
+				border-top: 5px solid white;
+				border-bottom: 5px solid white;
+				border-radius: 0 60% 20% 0;
+				transform: rotate(-10deg);
+				position: absolute;
+			}
+			.line_start,.line_end{
+				position: absolute;
+			    width: 50px;
+			    height: 160px;
+			    border-left: 3px dotted white;
+			}
+			.line_start{
+			    left: 320px;
+			    top: 390px;
+			    transform: rotate(-10deg);
+			}
+			.line_end{
+				left: 1400px;
+    			top: 190px;
+    			transform: rotate(-20deg);
+			}
+			.road1{
+				top: -90px;
+				left: -47px;
+			}
+			.road2{
+				top: -35px;
+    			left: -47px;
+			}
+			.road3{
+				top: 21px;
+    			left: -47px;
+			}
+			@keyframes arm {
+				40% {
+					-webkit-transform: scale(1.2);
+					transform: scale(1.2);
+				}
+				66% {
+					-webkit-transform: scale(0.5);
+					transform: scale(0.5);
+				}
+			}
+			
+			@keyframes mounth {
+				0%,
+				100% {
+					height: 15px;
+					width: 20px;
+					border-radius: 50% 66% 50% 50%;
+				}
+				50% {
+					height: 16px;
+					bottom: 20px;
+					border-radius: 100% 50% 100% 50%;
+				}
+			}
+			
+			.body {
+				left: 20px;
+				top: 100px;
+				width: 60px;
+				height: 80px;
+				box-shadow: inset 10px -6px 10px rgba(0, 0, 0, 0.1);
+				animation: move 0.5s ease-in-out infinite;
+				border-radius: 45% 45% 20% 60%/40% 40% 49% 47%;
+			}
+			
+			@keyframes move {
+				0%,
+				100% {
+					bottom: 0;
+				}
+				20% {
+					bottom: 8px;
+				}
+				40% {
+					bottom: 14px;
+				}
+				60% {
+					bottom: 16px;
+				}
+				80% {
+					bottom: 24px;
+				}
+			}
+			
+			.foot {
+				position: relative;
+				width: 30px;
+				height: 70px;
+				top: 170px;
+				box-shadow: inset 10px -6px 10px rgba(0, 0, 0, 0.1);
+				animation: move 0.5s ease-in-out infinite;
+			}
+			
+			.foot.left {
+				left: 20px;
+				z-index: -1;
+				position: absolute;
+				transform: rotate(20deg);
+				transform-origin: 0% 0%;
+				animation-name: f_l;
+				animation-fill-mode:both ;
+				border-radius: 80% 45% 60% 60%/40% 40% 49% 47%;
+			}
+			
+			.foot.right {
+				left: 50px;
+				position: absolute;
+				transform: rotate(-20deg);
+				transform-origin: 100% 50%;
+				animation-name: f_r;
+				animation-fill-mode:both ;
+				border-radius: 80% 45% 60% 60%/40% 40% 49% 47%;
+			}
+			#pink .foot.left,#pink .foot.right {
+				animation-direction: 1s;
+				animation-timing-function: linear;
+				animation-delay: 4.5s;
+				animation-iteration-count: 6;
+			}
+			#green .foot.left,#green .foot.right {
+				animation-direction: 0.5s;
+				animation-timing-function: linear;
+				animation-delay: 4.5s;
+				animation-iteration-count: 10;
+			}
+			#yellow .foot.left,#yellow .foot.right {
+				animation-direction: 0.1s;
+				animation-timing-function: linear;
+				animation-delay: 4.5s;
+				animation-iteration-count: 10;
+			}
+			@keyframes f_l {
+				50% {
+					transform: rotate(-40deg);
+					transform-origin: 0% 0%;
+				}
+			}
+			@keyframes f_r {
+				50% {
+					transform: rotate(40deg);
+					transform-origin: 0% 0%;
+				}
+			}
+			.delay_time{
+				position: absolute;
+				left: 50%;
+				top: 50%;
+			    -webkit-animation-fill-mode: both;
+			    animation-fill-mode: both;
+			    height: 100px;
+			    width: 100px;
+			    border-radius: 100%;
+			    border: 2px solid #fff;
+			    opacity: 0;
+			    -webkit-animation: ball-scale-ripple 1s 1s  4 cubic-bezier(.21, .53, .56, .8);
+			    animation: ball-scale-ripple 1s 1s  4 cubic-bezier(.21, .53, .56, .8);
+			}
+			.three,.two,.one,.go{
+				opacity: 0;
+				animation: show 1s linear;
+				position: absolute;
+				left: 34%;
+				top: 20%;
+				font-size: 60px;
+				font-weight: bold;
+				color: white;
+			}
+			.three{
+				animation-delay: 1s;
+			}
+			.two{
+				animation-delay: 2s;
+			}
+			.one{
+				animation-delay: 3s;
+			}
+			.go{
+				animation-delay: 4s;
+				left: 20%;
+				top: 10%;
+			}
+			@keyframes show{
+				0%,100%{
+					opacity: 0;
+				}
+				50%{
+					opacity: 1;
+				}
+			}
+			@-webkit-keyframes ball-scale-ripple {
+			  0% {
+			    -webkit-transform: scale(0.1);
+			            transform: scale(0.1);
+			    opacity: 1; 
+			    }
+			
+			  70% {
+			    -webkit-transform: scale(1);
+			            transform: scale(1);
+			    opacity: 0.7; 
+			    }
+			
+			  100% {
+			    opacity: 0.0;
+			     } 
+    		}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="intem" id="pink">
+				<div class="wrap">
+					<div class="left eye"><span></span></div>
+					<div class="right eye"><span></span></div>
+					<div class="mouth"></div>
+					<div class="arm left"></div>
+					<div class="arm right"></div>
+					<div class="body"></div>
+					<div class="foot right"></div>
+					<div class="foot left"></div>
+				</div>
+			</div>
+			<div class="intem" id="green">
+				<div class="wrap">
+					<div class="left eye"><span></span></div>
+					<div class="right eye"><span></span></div>
+					<div class="mouth"></div>
+					<div class="body"></div>
+					<div class="foot right"></div>
+					<div class="foot left"></div>
+					<div class="arm left"></div>
+					<div class="arm right"></div>
+				</div>
+			</div>
+			<div class="intem" id="yellow">
+				<div class="wrap">
+					<div class="left eye"><span></span></div>
+					<div class="right eye"><span></span></div>
+					<div class="mouth"></div>
+					<div class="body"></div>
+					<div class="foot right"></div>
+					<div class="foot left"></div>
+					<div class="arm left"></div>
+					<div class="arm right"></div>
+				</div>
+			</div>
+		</div>
+		<div class="road">
+			<div class="line road1">
+			</div>
+			<div class="line road2">
+			</div>
+			<div class="line road3">
+			</div>
+		</div>
+		
+		<div class="delay_time">
+			<span class="three">3</span>
+			<span class="two">2</span>
+			<span class="one">1</span>
+			<span class="go">go</span>
+		</div>
+		<div class="line_start"></div>
+		<div class="line_end"></div>
+	</body>
+
+</html>
