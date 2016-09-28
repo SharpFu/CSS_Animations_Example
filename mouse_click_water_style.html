@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>鼠标点击波纹特效</title>
+	<style type="text/css">
+		/*button,.btn{
+			width: 150px;
+			height: 40px;
+			background-color: cornflowerblue;
+			padding:10px 0;
+			border:1px solid #0044CC;
+			color:white;
+			font-weight: bold;
+		}*/
+		button,input[type='submit']{
+			background-color: cornflowerblue !important;
+			color: white;
+		}
+		.waves-button-input{
+			z-index: -1 !important;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="css/waves.min.css"/>
+	<script src="js/waves.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<p>
+		<strong>使用方法：</strong>为需要添加特效的div 或者class 添加waves-effect 、 .waves-button 这两个类即可。
+	</p>
+	<button class="waves-effect waves-button">点我试试</button>
+	<p>
+		特别注意的是，若为input标签，则需要手动添加i标签包裹之。
+	</p>
+	<i class="waves-effect waves-button waves-input-wrapper" >
+    	<input class="waves-button-input" type="submit" value="Button C">
+	</i>
+	
+</body>
+<script type="text/javascript">
+    Waves.displayEffect();
+</script>
+
+</html>
